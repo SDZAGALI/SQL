@@ -1,0 +1,42 @@
+/**storeitemhat:
+buckethat (4)($5)
+caphat(6)($8)
+rainhat (3)($3)
+sunhat (2)($14)
+beanie (1)($20
+**/
+
+CREATE TABLE storeitemhat (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER,price INTEGER);
+
+INSERT INTO storeitemhat VALUES (1,"buckethat",4,5);
+INSERT INTO storeitemhat VALUES (2,"caphat",6,8);
+INSERT INTO storeitemhat VALUES (3,"rainhat",3,3);
+INSERT INTO storeitemhat VALUES (4,"sunhat",2,14);
+INSERT INTO storeitemhat VALUES (5,"beanie",1,20);
+SELECT * FROM storeitemhat;
+SELECT SUM (quantity) FROM storeitemhat;
+SELECT SUM (price) FROM storeitemhat;
+SELECT SUM (quantity) FROM storeitemhat GROUP BY price;
+SELECT * FROM storeitemhat WHERE price>=6 ORDER BY price;
+SELECT * FROM storeitemhat WHERE price<=10 ORDER BY price;
+SELECT MAX (price) FROM storeitemhat;
+SELECT id  FROM storeitemhat WHERE quantity >=3;
+
+
+--display the database ordered by price. 
+SELECT * FROM  storeitemhat 
+ORDER BY price ; 
+id	name	quantity	price
+3	rainhat	3	         3
+1	buckethat	4	       5
+2	caphat	6          8
+4	sunhat	2	        14
+5	beanie	1	        20
+
+--what is the avg price of items in the Hat store? 
+SELECT MAX (price) FROM storeitemhat; 
+ 
+
+
+
+
