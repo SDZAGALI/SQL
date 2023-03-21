@@ -27,11 +27,11 @@ SELECT title FROM songs;       (viewing all song titles)
 
 /*OR**/
 
-SELECT title FROM songs WHERE(mood="epic" OR"released">1990); (USE "OR" select titles where the mood is epic and released after 1990)
+SELECT title FROM songs WHERE(mood="epic" OR"released">1990); (USE "OR" operator select titles where the mood is epic and released after 1990)
 
 /*AND**/
 
-SELECT title FROM songs WHERE(mood="epic") AND"released">1990 AND "duration"<240 (USE "AND" to select titles where mood is epic, released after 1990
+SELECT title FROM songs WHERE(mood="epic") AND"released">1990 AND "duration"<240 (USE "AND" operator to select titles where mood is epic, released after 1990
 and have a duration of less than 4 minutes
 
 
