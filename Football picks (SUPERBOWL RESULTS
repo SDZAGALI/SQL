@@ -1,0 +1,58 @@
+/* Put your data in here and query it! */
+CREATE TABLE picks(
+	id INTEGER PRIMARY KEY,
+	pick_number INTEGER,
+	name TEXT,
+	college TEXT,
+	picked_by TEXT,
+	position TEXT);
+
+INSERT INTO picks (pick_number, name, college, picked_by, position)
+	VALUES(1,"Jameis Winston","Florida State","Tampa Bay","QB");
+INSERT INTO picks (pick_number, name, college, picked_by, position)
+	VALUES(2,"Marcus Mariota","Oregon","Tennessee","QB");
+INSERT INTO picks (pick_number, name, college, picked_by, position)
+	VALUES(3,"Dante Fowler Jr.","Florida","Jacksonville","DE");
+INSERT INTO picks (pick_number, name, college, picked_by, position)
+	VALUES(4,"Amari Cooper","Alabama","Oakland","WR");
+INSERT INTO picks (pick_number, name, college, picked_by, position)
+	VALUES(5,"Brandon Scherff ","Iowa","Washington","OT");
+INSERT INTO picks (pick_number, name, college, picked_by, position)
+	VALUES(6,"Leonard Williams","USC","NY Jets","DE");
+INSERT INTO picks (pick_number, name, college, picked_by, position)
+	VALUES(7,"Kevin White","West Virginia","Chicago","WR");
+INSERT INTO picks (pick_number, name, college, picked_by, position)
+	VALUES(8,"Vic Beasley","Clemson","Atlanta","OLB");
+
+SELECT * FROM picks;
+SELECT * FROM picks WHERE pick_number >=6 ORDER by pick_number;
+
+/*AND*/
+SELECT * FROM picks WHERE position='DE' AND pick_number>=2;
+
+/*OR*/
+SELECT * FROM picks WHERE position='QB'OR pick_number<=4;
+
+SELECT * FROM picks WHERE college ="Florida State";
+SELECT * FROM picks WHERE college ="Alabama" OR college ="Oregon" OR college ="Clemson";
+/*IN*/
+SELECT * FROM picks WHERE college IN("Alabama","Oregon","Clemson");
+SELECT * FROM picks WHERE college NOT IN("Alabama","Oregon","Clemson");
+
+SELECT college,AVG(pick_number) FROM picks GROUP BY college;
+SELECT college,AVG(pick_number) AS number_averaged FROM picks GROUP BY college
+HAVING number_averaged>=5;
+
+SELECT COUNT (*) FROM picks WHERE pick_number>=4 OR ROUND(3*1);
+
+SELECT name,college,ROUND(pick_number*2) AS number_picked FROM picks;
+
+/*CASE*/
+
+SELECT COUNT(*), 
+CASE 
+WHEN pick_number <8 THEN 'high_rate'
+ELSE "lowest"
+END AS "pick_rating" FROM picks;
+
+* This was really fun, these are the draft picks and I worked mostly with their pick number using HAVE, AND/OR, COUNT, CASE.
